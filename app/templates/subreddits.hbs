@@ -4,6 +4,9 @@
   	<p>Number of Comments: {{post.data.num_comments}}</p>
   	<p>Upvotes: {{post.data.ups}}</p>
   	<p>Downvotes: {{post.data.downs}}</p>  	
-  	<p>Domain: {{post.data.domain}}</p>    
+  	<p>Domain: {{post.data.domain}}</p>
+  	{{#if post.data.thumbnail}}
+  		<img src={{post.data.thumbnail}}>
+  	{{/if}}
   </div>
 {{/each}}

@@ -1,9 +1,10 @@
 import Route from '@ember/routing/route';
+import {inject as service} from '@ember/service';
 
 export default Route.extend({
+  reddit: service('reddit'),
 	model(params) {
-  	let subreddit = params.subreddit;
- 		return $.getJSON(`https://www.reddit.com/r/${subreddit}.json`);   	
+		return this.get('reddit').findAllForSubreddit(params.subreddit)
 	},
 	actions: {
     loading(transition, originRoute) {
@@ -14,7 +15,7 @@ export default Route.extend({
     },
     error(error, transition) {
       if (error) {
-        $('#title').html('Error');
+        $('#title').html('error');
       }
     }
   }
