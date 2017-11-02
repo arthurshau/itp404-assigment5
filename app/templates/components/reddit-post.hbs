@@ -1,0 +1,15 @@
+<div class="post">
+  <p><strong>{{post.data.title}}</strong></p>
+  <p>Date Created: {{relative-time post.data.created}} </p>
+	<p>Number of Comments: {{post.data.num_comments}}</p>
+	<p>Upvotes: {{post.data.ups}}</p>
+	<p>Downvotes: {{post.data.downs}}</p>  	
+	<p>Domain: {{post.data.domain}}</p>
+	{{#if post.data.thumbnail}}
+		<img src={{post.data.thumbnail}}>
+  {{else}}
+    <img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/emoji-one/104/dolphin_1f42c.png">
+	{{/if}}
+	{{vote-control score=post.data.score onvote=(action "changeScore")}}
+	<h4 style='color:blue'>Score: {{post.data.score}}</h4>
+</div>
