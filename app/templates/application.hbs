@@ -4,3 +4,8 @@
 <button onclick={{action "searchForSubreddit"}}>Search</button>
 
 {{outlet}}
+
+<h1 id="title">Email</h1>
+
+{{unread-email email=model onclick=(action "markAsRead")}}
+
